@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.db import IntegrityError
-from django.contrib.auth import login, logout
+from django.contrib.auth import login, logout, authenticate
 
 
 def home(request):
@@ -24,6 +24,18 @@ def signupuser(request):
                        {'form': UserCreationForm(), 'error': 'This username is already taken. Please choose another one'})
         else:
             return render(request, 'todoapp/signupuser.html', {'form': UserCreationForm(), 'error': 'Passwords did not match'})
+
+
+def loginuser(request):
+    if request.method == 'GET':
+        return render(request, 'todoapp/loginuser.html', {'form': AuthenticationForm()})
+    else:
+        user = authenticate(request, username=request.POST['username'], password=request.POST['password'])
+        if user is None:
+            return render(request, 'todoapp/loginuser.html', {'form': AuthenticationForm(), 'error': 'Username or password is incorrect'})
+        else:
+            login(request, user)
+            return redirect('currenttodos')
 
 
 def currenttodos(request):
