@@ -1,0 +1,16 @@
+<title>ToDo</title>
+{% extends 'todoapp/base.html' %}
+{% block content %}
+    <h2>{{ error }}</h2>
+    <h1>{{ todo.title }}</h1>
+        <p>{{ todo.memo }}</p>
+
+
+    <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+    </form>
+
+{% endblock %}
+
