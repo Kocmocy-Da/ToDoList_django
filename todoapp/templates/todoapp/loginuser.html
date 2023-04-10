@@ -1,13 +1,15 @@
 <title>Log in</title>
 {% extends 'todoapp/base.html' %}
 {% block content %}
-    <h1>Login</h1>
-
-    <h2>{{ error }}</h2>
-
-    <form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Login</button>
-    </form>
+    <div class="log-in">
+        <h1 class="log-in-title">Login</h1>
+        <h2 class="log-in-error">{{ error }}</h2>
+    </div>
+    <div class="form-log-in">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Login</button>
+            </form>
+    </div>
 {% endblock %}

@@ -1,22 +1,29 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/ultimate_style.css' %}">
 </head>
 <body>
     {% if user.is_authenticated %}
-    Logged in as {{ user.username }}
-    <a href="{% url 'createtodo' %}">Create</a>
-    <a href="{% url 'currenttodos' %}">Current</a>
-    <a href="{% url 'completedtodos' %}">Completed</a>
-    <form action="{% url 'logoutuser' %}" method="POST">
-        {% csrf_token %}
-        <button type="submit">Log out</button>
-    </form>
+    <div class="logged">
+        Good to see you, <span class="username">{{ user.username }}</span>!
+        <form action="{% url 'logoutuser' %}" method="POST">
+            {% csrf_token %}
+            <button type="submit">Log out</button>
+        </form>
+    </div>
+    <div class="navigation">
+        <a href="{% url 'createtodo' %}">CREATE</a>
+        <a href="{% url 'currenttodos' %}">CURRENT</a>
+        <a href="{% url 'completedtodos' %}">COMPLETED</a>
+    </div>
     {% else %}
-        <a href="{% url 'signupuser' %}">Sign up</a>
-        <a href="{% url 'loginuser' %}">Login</a>
+        <div class="logged">
+            <a href="{% url 'signupuser' %}">Sign up</a>
+            <a href="{% url 'loginuser' %}">Login</a>
+        </div>
     {% endif %}
-    <br><br>
     {% block content %}{% endblock %}
 </body>
