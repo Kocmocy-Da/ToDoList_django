@@ -48,8 +48,7 @@ button {
 }
 
 .navigation {
-    padding: 0 0 3% 3%;
-    margin-bottom: 20px;
+    padding: 0 0 0 3%;
 }
 
 .navigation a {
@@ -113,4 +112,89 @@ button {
     border-radius: 20px;
     font-size: 20px;
     background-color: rgb(240, 179, 221);
+}
+
+.form-sign-up {
+    width: 400px;
+    margin: auto;
+    font-size: 20px;
+    font-weight: 500;
+    padding: auto;
+}
+
+.form-sign-up input {
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.form-sign-up button {
+    margin: 10px 0 0 170px;
+    padding: 4px 8px 4px 8px;
+    border-radius: 20px;
+    font-size: 20px;
+    background-color: rgb(240, 179, 221);
+}
+
+.form-sign-up ul {
+    font-size: 0;
+}
+
+.navigation-title {
+    margin-left: 3%;
+}
+
+.navigation-title h1 {
+    font-weight: 700;
+}
+
+.navigation-title h2 {
+    color: rgb(123, 42, 42);
+    font-weight: 300;
+}
+
+.form-create {
+    margin-left: 3%;
+}
+
+.form-create button {
+    padding: 4px 8px 4px 8px;
+    border-radius: 20px;
+    font-size: 20px;
+    background-color: rgb(240, 179, 221);
+    margin-bottom: 12px;
+}
+
+.nothing-to-do {
+    margin-left: 3%;
+}
+
+.nothing-to-do h1{
+    font-weight: 300;
+}
+
+.todos-list {
+    margin-left: 3%;
+    margin-right: 3%;
+    list-style-type: none;
+    font-size: 22px;
+}
+
+.todos-list a {
+    display: block;
+    text-decoration: none;
+    background-color: rgb(254, 240, 255);
+    padding-left: 12px;
+    padding-right: 12px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+    color: rgb(0, 0, 0);
+    line-height: 30px;
+}
+
+.todos-list a b {
+    color: rgb(123, 42, 42);
+}
+
+.todo-memo {
+    font-size: 15px;
 }

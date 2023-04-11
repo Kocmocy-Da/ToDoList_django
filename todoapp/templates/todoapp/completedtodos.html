@@ -1,18 +1,27 @@
 <title>Competed toDos</title>
 {% extends 'todoapp/base.html' %}
 {% block content %}
-    <h1>Completed</h1>
-    <ul>
-        {% for todo in todos %}
-        <li>
-            <a href="{% url 'viewtodo' todo.id %}">
-            {% if todo.important %}<b>{% endif %}{{ todo.title }}{% if todo.important %}</b>{% endif %}
-            {% if todo.memo %} &mdash; {{ todo.memo }}{% endif %}
-            {{ todo.datecompleted|date:'M j Y H:i' }}
-            </a>
-        </li>
-        {% endfor %}
-    </ul>
+    <div class="navigation-title">
+        <h1>Completed</h1>
+    </div>
+    {% if todos %}
+    <div>
+        <ul class="todos-list">
+            {% for todo in todos %}
+            <li>
+                <a href="{% url 'viewtodo' todo.id %}">
+                {% if todo.important %}<b>{% endif %}{{ todo.title }}{% if todo.important %}</b>{% endif %}
+                {% if todo.memo %} &mdash; <span class="todo-memo">{{ todo.memo }}.</span>{% endif %} Completed: {{ todo.datecompleted|date:'M j Y H:i' }}
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% else %}
+    <div class="nothing-to-do">
+        <h1>You should do something!</h1>
+    </div>
+    {% endif %}
 
 {% endblock %}
 

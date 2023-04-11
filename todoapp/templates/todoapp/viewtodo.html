@@ -1,20 +1,24 @@
 <title>ToDo</title>
 {% extends 'todoapp/base.html' %}
 {% block content %}
-    <h2>{{ error }}</h2>
-    <h1>{{ todo.title }}</h1>
+    <div class="navigation-title">
+        <h2>{{ error }}</h2>
+        <h1>{{ todo.title }}</h1>
         <p>{{ todo.memo }}</p>
-    <form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Save</button>
-    </form>
-    <form method="POST" action="{% url 'completetodo' todo.id %}">
-    {% csrf_token %}
-    <button type="submit">Complete</button>
-    </form>
-    <form method="POST" action="{% url 'deletetodo' todo.id %}">
-    {% csrf_token %}
-    <button type="submit">Delete</button>
-    </form>
+    </div>
+    <div class="form-create">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Save</button>
+        </form>
+        <form method="POST" action="{% url 'completetodo' todo.id %}">
+            {% csrf_token %}
+            <button type="submit">Complete</button>
+        </form>
+        <form method="POST" action="{% url 'deletetodo' todo.id %}">
+            {% csrf_token %}
+            <button type="submit">Delete</button>
+        </form>
+    </div>
 {% endblock %}

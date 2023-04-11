@@ -1,17 +1,27 @@
 <title>Current toDos</title>
 {% extends 'todoapp/base.html' %}
 {% block content %}
-    <h1>Current</h1>
-    <ul>
-        {% for todo in todos %}
-        <li>
-            <a href="{% url 'viewtodo' todo.id %}">
-            {% if todo.important %}<b>{% endif %}{{ todo.title }}{% if todo.important %}</b>{% endif %}
-            {% if todo.memo %} &mdash; {{ todo.memo }}{% endif %}
-            </a>
-        </li>
-        {% endfor %}
-    </ul>
+    <div class="navigation-title">
+        <h1>Current</h1>
+    </div>
+    {% if todos %}
+    <div>
+        <ul class="todos-list">
+            {% for todo in todos %}
+            <li>
+                <a href="{% url 'viewtodo' todo.id %}">
+                {% if todo.important %}<b>{% endif %}{{ todo.title }}{% if todo.important %}</b>{% endif %}
+                {% if todo.memo %} &mdash; <span class="todo-memo">{{ todo.memo }}</span>{% endif %}
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% else %}
+    <div class="nothing-to-do">
+        <h1>Nothing to do!</h1>
+    </div>
+    {% endif %}
 
 {% endblock %}
 

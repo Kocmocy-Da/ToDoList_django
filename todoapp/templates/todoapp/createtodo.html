@@ -1,13 +1,15 @@
 <title>Creating toDo</title>
 {% extends 'todoapp/base.html' %}
 {% block content %}
-    <h1>Create</h1>
-
-    <h2>{{ error }}</h2>
-
-    <form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Create!</button>
-    </form>
+    <div class="navigation-title">
+        <h1>Create ToDo</h1>
+        <h2>{{ error }}</h2>
+    </div>
+    <div class="form-create">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Create!</button>
+        </form>
+    </div>
 {% endblock %}
